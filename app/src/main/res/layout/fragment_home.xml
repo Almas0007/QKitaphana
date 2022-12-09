@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment">
+
+<com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/homeImage"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="25dp"
+
+    android:background="@drawable/akhmet"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:shapeAppearanceOverlay="@style/q_image_circle" />
+
+<TextView
+    android:id="@+id/homeName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginStart="10dp"
+    android:fontFamily="@font/supermolot"
+    android:text="Akhmet"
+    android:textColor="@color/q_nedoblack"
+
+    android:textSize="14sp"
+    app:layout_constraintBottom_toBottomOf="@id/homeImage"
+    app:layout_constraintStart_toEndOf="@id/homeImage"
+    app:layout_constraintTop_toTopOf="@id/homeImage" />
+
+<Button
+    android:id="@+id/homeNotification"
+    android:layout_width="44dp"
+    android:layout_height="44dp"
+
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/icon_notification"
+
+    app:layout_constraintBottom_toBottomOf="@id/homeImage"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@id/homeImage" />
+
+<TextView
+    android:id="@+id/homeText1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="20dp"
+    android:fontFamily="@font/supermolot"
+    android:text="Барлық"
+    android:textColor="@color/q_nedoblack"
+
+    android:textSize="30sp"
+    app:layout_constraintStart_toStartOf="@id/homeImage"
+    app:layout_constraintTop_toBottomOf="@id/homeImage" />
+
+<TextView
+    android:id="@+id/homeText2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="0dp"
+    android:fontFamily="@font/supermolot"
+    android:textStyle="bold"
+    android:text="Kitaphana-лар"
+    android:textColor="@color/q_blue"
+
+    android:textSize="30sp"
+    app:layout_constraintStart_toStartOf="@id/homeImage"
+    app:layout_constraintTop_toBottomOf="@id/homeText1" />
+
+<TextView
+    android:id="@+id/homeText3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="0dp"
+    android:fontFamily="@font/supermolot"
+    android:textStyle="bold"
+    android:text=" тізімі"
+    android:textColor="@color/q_nedoblack"
+
+    android:textSize="30sp"
+    app:layout_constraintStart_toEndOf="@id/homeText2"
+    app:layout_constraintTop_toBottomOf="@id/homeText1"
+    />
+
+<TextView
+    android:id="@+id/homeText4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:text="Үздік кітапханалар"
+
+    android:layout_marginTop="20dp"
+    app:layout_constraintTop_toBottomOf="@id/homeText2"
+    app:layout_constraintStart_toStartOf="@id/homeImage"
+    />
+<TextView
+    android:id="@+id/homeViewAll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:text="Толық көру"
+    android:textColor="@color/q_blue"
+
+    app:layout_constraintTop_toTopOf="@id/homeText4"
+    app:layout_constraintEnd_toEndOf="@id/homeNotification"
+    />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="500dp"
+        android:minWidth="445dp"
+
+        app:layout_constraintTop_toBottomOf="@id/homeText4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/homeImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

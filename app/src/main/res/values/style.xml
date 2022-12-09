@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="q_bottom_corner">
+        <item name="cornerSizeBottomLeft">18dp</item>
+        <item name="cornerSizeBottomRight">18dp</item>
+    </style>
+    <style name="q_image_circle">
+        <item name="cornerSize">20dp</item>
+    </style>
+</resources>

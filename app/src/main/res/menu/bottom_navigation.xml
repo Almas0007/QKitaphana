@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nvPageHome"
+        android:icon="@drawable/icon_home"
+        android:title="Басты бет"/>
+    <item
+        android:id="@+id/nvPageCalendar"
+        android:icon="@drawable/icon_calendar"
+
+        android:title="Күнтізбе"
+
+        />
+
+    <item
+        android:id="@+id/nvPageSearch"
+        android:icon="@drawable/icon_search"
+        android:title="Іздеу"/>
+    <item
+        android:id="@+id/nvPageChat"
+        android:icon="@drawable/icon_chat"
+        android:title="Хабарламалар"/>
+    <item
+        android:id="@+id/nvPageProfile"
+        android:icon="@drawable/icon_profile"
+        android:title="Жеке парақша"/>
+
+
+
+</menu>
