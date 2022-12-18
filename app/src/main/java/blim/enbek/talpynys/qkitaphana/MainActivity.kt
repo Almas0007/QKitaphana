@@ -1,5 +1,6 @@
 package blim.enbek.talpynys.qkitaphana
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -7,6 +8,7 @@ import android.os.Looper
 import androidx.fragment.app.FragmentManager
 import blim.enbek.talpynys.qkitaphana.databinding.ActivityMainBinding
 import blim.enbek.talpynys.qkitaphana.databinding.FragmentSplashBinding
+import blim.enbek.talpynys.qkitaphana.fragment.CRUDFragment
 import blim.enbek.talpynys.qkitaphana.fragment.FirstWelcomeFragment
 import blim.enbek.talpynys.qkitaphana.fragment.SplashFragment
 
@@ -18,12 +20,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         splash()
-        nextFragment()
+        pokashto()
     }
 
     fun splash() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainActivity, SplashFragment.newInstance()).commit()
+    }
+
+
+    fun pokashto() {
+        val intent = Intent(this,ProcessActivity::class.java)
+        startActivity(intent)
     }
 
     fun nextFragment() {

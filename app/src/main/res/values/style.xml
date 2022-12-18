@@ -7,4 +7,10 @@
     <style name="q_image_circle">
         <item name="cornerSize">20dp</item>
     </style>
+    <style name="q_image_big_circle">
+        <item name="cornerSize">45dp</item>
+    </style>
+    <style name="q_itemLib_circle">
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

@@ -15,5 +15,8 @@
     <color name="q_grey_text">#707B81</color>
     <color name="q_nedoblack">#3E3E3E</color>
     <color name="q_yellow">#FFD336</color>
+    <color name="q_white">#F7F7F9</color>
+    <color name="q_black">#1B1E28</color>
+    <color name="q_whitegrey">#F6F5F5</color>
 
 </resources>
