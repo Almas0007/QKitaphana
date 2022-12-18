@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/itemQ_rc_id"
+    >
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/itemQImage"
+        android:layout_width="95dp"
+        android:layout_height="120dp"
+
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
+
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/q_blue"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/q_itemLib_circle"
+        app:srcCompat="@drawable/a8" />
+
+    <TextView
+        android:id="@+id/itemQText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/supermolotblack"
+
+        android:maxLength="18"
+        android:text="ExampleName"
+        android:textColor="@color/black"
+        android:textIsSelectable="true"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/itemQButtonDelete"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/itemQImage"
+        app:layout_constraintTop_toTopOf="@+id/itemQImage" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Address:"
+        android:textColor="@color/q_nedoblack"
+        app:layout_constraintStart_toStartOf="@+id/itemQText"
+        app:layout_constraintTop_toBottomOf="@+id/itemQText" />
+
+    <TextView
+        android:id="@+id/itemQAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:shadowColor="@color/q_grey_text"
+        android:text="ExampleAdressExampleAdressExampleAdressExampleAdress"
+        app:layout_constraintEnd_toStartOf="@+id/itemQButtonDelete"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/itemQButtonDelete"
+        android:layout_width="65dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_little_corner"
+        android:fontFamily="@font/supermolot"
+        android:text="Delete"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemQImage" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/itemQRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="4.7"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
