@@ -20,7 +20,7 @@ class ItemFragment : Fragment() {
         fun newInstance() = ItemFragment()
     }
 
-    val array = ArrayList<DataLibraryClass>()
+
     lateinit var binding: FragmentItemBinding
     private val vm: LibraryViewModel by activityViewModels()
 
@@ -34,7 +34,7 @@ class ItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
+        editItem()
         binding.buttonEdit.setOnClickListener {
             observeData()
             closeFragment()
@@ -44,6 +44,7 @@ class ItemFragment : Fragment() {
     }
 
     fun observeData() {
+
         val item = DataLibraryClass(
             1,
             binding.editTextNameLibrary.text.toString(),
@@ -51,6 +52,14 @@ class ItemFragment : Fragment() {
             binding.editTextLibraryRating.text.toString().toFloat()
         )
         vm.liveItemData.value = item
+    }
+
+    fun editItem(){
+        vm.liveItemData.observe(viewLifecycleOwner){
+            binding.editTextNameLibrary.setText(it.nameLibrary)
+            binding.editTextLibraryAddress.setText(it.addressLibrary)
+            binding.editTextLibraryRating.setText(it.ratingLibrary.toString())
+        }
     }
 
 

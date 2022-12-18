@@ -1,6 +1,5 @@
 package blim.enbek.talpynys.qkitaphana.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -27,10 +26,6 @@ class CRUDFragment : Fragment(), LibraryRCAdapter.OnClick {
     lateinit var binding: FragmentCRUDBinding
     private val vm: LibraryViewModel by activityViewModels()
 
-
-    var isEditar = false
-    var posicion = -1
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,10 +51,12 @@ class CRUDFragment : Fragment(), LibraryRCAdapter.OnClick {
             dataSet.add(it)
             Log.d("MyTest","Dataset:"+dataSet.toString())
             mAdapter.submitList(dataSet)
-            mAdapter.notifyDataSetChanged()
+
         }
 
     }
+
+
     fun createRc(){
 
         mAdapter = LibraryRCAdapter(this)
@@ -69,17 +66,27 @@ class CRUDFragment : Fragment(), LibraryRCAdapter.OnClick {
 
     }
     fun addItemFragment(){
-        parentFragmentManager.beginTransaction().add(R.id.processPlaceFragment,ItemFragment.newInstance()).commit()
+
+        parentFragmentManager.beginTransaction().add(R.id.processPlaceFragment,ItemFragment.newInstance()).addToBackStack("").commit()
+
     }
 
     override fun onItemEdit(position: Int) {
         Log.d("MyTest","Position: $position")
+        vm.liveItemData.value = dataSet[position]
+
+        addItemFragment()
     }
 
     override fun onItemDelete(position: Int) {
-
+        dataSet.removeAt(position)
+        mAdapter.notifyItemRemoved(position)
+        Log.d("MyTest", "Dataset:$dataSet")
     }
 
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        vm.liveDataList.value = dataSet
+    }
 }
