@@ -48,8 +48,9 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
         private val itemRC = itemView.findViewById(R.id.itemQ_rc_id) as ConstraintLayout
         fun bind(item: DataLibraryClass,buttonClick: OnClick) {
             text.text = item.nameLibrary
-            address.text = item.addressLibrary
             rating.text = item.ratingLibrary.toString()
+            address.text = item.addressLibrary
+
 
             buttonDelete.setOnClickListener {
                 buttonClick.onItemDelete(absoluteAdapterPosition)
