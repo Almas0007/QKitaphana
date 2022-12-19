@@ -59,9 +59,6 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
                 buttonClick.onItemEdit(absoluteAdapterPosition)
             }
 
-
-
-
         }
     }
 
