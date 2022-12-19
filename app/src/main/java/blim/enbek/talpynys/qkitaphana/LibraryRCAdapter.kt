@@ -62,6 +62,7 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
         }
     }
 
+
     interface OnClick {
         fun onItemEdit(position: Int)
 
