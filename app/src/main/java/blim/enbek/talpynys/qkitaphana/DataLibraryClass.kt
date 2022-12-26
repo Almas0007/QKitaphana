@@ -4,5 +4,5 @@ data class DataLibraryClass(
     val urlImg:Int,
     var nameLibrary:String,
     val addressLibrary:String,
-    val ratingLibrary:Float
+    val ratingLibrary:String
 )

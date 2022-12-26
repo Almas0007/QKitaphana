@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProcessActivity">
+    tools:context=".ProcessActivity"
+    >
 
     <FrameLayout
         android:id="@+id/processPlaceFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 <!--        app:layout_constraintBottom_toTopOf="@id/processBottomNavigationView"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->

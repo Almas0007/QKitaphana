@@ -3,10 +3,8 @@ package blim.enbek.talpynys.qkitaphana
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
@@ -20,6 +18,8 @@ import blim.enbek.talpynys.qkitaphana.fragment.HomeFragment
 class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLibraryClass,LibraryRCAdapter.ViewHolder>(DiffCallback()){
 
 
+
+    /** Comparator for change RCView*/
     private class DiffCallback : DiffUtil.ItemCallback<DataLibraryClass>() {
         override fun areItemsTheSame(oldItem: DataLibraryClass, newItem: DataLibraryClass): Boolean {
             return oldItem.nameLibrary == newItem.nameLibrary
@@ -29,12 +29,12 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
             return oldItem == newItem
         }
     }
-
+    /** Create Holder for RCView */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.item_crud, parent, false)
         return ViewHolder(item)
     }
-
+    /** Раздуваем item, вызываем метод из ViewHolder и пердаем данные по позиции нажатого item-а */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position),buttonClick)
     }
@@ -46,11 +46,11 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
         private val rating = itemView.findViewById(R.id.itemQRating) as TextView
         private val buttonDelete = itemView.findViewById(R.id.itemQButtonDelete) as Button
         private val itemRC = itemView.findViewById(R.id.itemQ_rc_id) as ConstraintLayout
-        fun bind(item: DataLibraryClass,buttonClick: OnClick) {
-            text.text = item.nameLibrary
-            rating.text = item.ratingLibrary.toString()
-            address.text = item.addressLibrary
 
+        fun bind(item: DataLibraryClass, buttonClick: CRUDFragment) {
+            text.text = item.nameLibrary
+            address.text = item.addressLibrary
+            rating.text = item.ratingLibrary.toString()
 
             buttonDelete.setOnClickListener {
                 buttonClick.onItemDelete(absoluteAdapterPosition)
@@ -59,6 +59,7 @@ class LibraryRCAdapter(private val buttonClick:CRUDFragment): ListAdapter<DataLi
             itemRC.setOnClickListener{
                 buttonClick.onItemEdit(absoluteAdapterPosition)
             }
+
 
         }
     }

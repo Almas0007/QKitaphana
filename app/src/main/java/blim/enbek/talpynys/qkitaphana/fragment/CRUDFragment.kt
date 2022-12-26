@@ -22,9 +22,10 @@ class CRUDFragment : Fragment(), LibraryRCAdapter.OnClick {
     }
 
     var dataSet = ArrayList<DataLibraryClass>()
-    lateinit var mAdapter: LibraryRCAdapter
     lateinit var binding: FragmentCRUDBinding
+    lateinit var mAdapter: LibraryRCAdapter
     private val vm: LibraryViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,61 +33,60 @@ class CRUDFragment : Fragment(), LibraryRCAdapter.OnClick {
     ): View? {
         binding = FragmentCRUDBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        createRC()
 
-            createRc()
         binding.buttonTextAddItem.setOnClickListener{
-            addItemFragment()
-        }
-    }
-
-    fun observeData() {
-        vm.liveItemData.observe(viewLifecycleOwner){
-            Log.d("MyTest","item: $it")
-            dataSet.add(it)
-            Log.d("MyTest","Dataset:"+dataSet.toString())
-            mAdapter.submitList(dataSet)
+            addItemFragment(-1)
 
         }
+
 
     }
 
 
-    fun createRc(){
+    private fun createRC(){
 
         mAdapter = LibraryRCAdapter(this)
+        vm.liveDataList.observe(viewLifecycleOwner) {
+            Log.d("TestLog", "CRUDFragment: createRC() - it->$it")
+            dataSet = it
+            mAdapter.submitList(it)
+            mAdapter.notifyItemChanged(it.lastIndex)
+
+
+        }
         binding.placeRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.placeRecyclerView.adapter = mAdapter
-        observeData()
+
+
 
     }
-    fun addItemFragment(){
 
-        parentFragmentManager.beginTransaction().add(R.id.processPlaceFragment,ItemFragment.newInstance()).addToBackStack("").commit()
+    private fun addItemFragment(key:Int){
+        parentFragmentManager
+            .beginTransaction()
+            .replace(R.id.processPlaceFragment,ItemFragment.newInstance(key))
+            .addToBackStack("")
+            .commit()
 
+        Log.d("TestLog","In Item - ($key) - ")
     }
 
     override fun onItemEdit(position: Int) {
-        Log.d("MyTest","Position: $position")
-        vm.liveItemData.value = dataSet[position]
+        addItemFragment(position)
 
-        addItemFragment()
+        Log.d("TestLog","CRUDFragment:  onItemEdit($position: Int) - ")
+
     }
 
     override fun onItemDelete(position: Int) {
         dataSet.removeAt(position)
         mAdapter.notifyItemRemoved(position)
-        Log.d("MyTest", "Dataset:$dataSet")
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        vm.liveDataList.value = dataSet
-    }
+
 }

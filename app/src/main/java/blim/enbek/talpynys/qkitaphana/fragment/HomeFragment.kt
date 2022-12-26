@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import blim.enbek.talpynys.qkitaphana.LibraryRCAdapter
 import blim.enbek.talpynys.qkitaphana.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment(), LibraryRCAdapter.OnClick  {
+class HomeFragment : Fragment()  {
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -23,19 +23,6 @@ class HomeFragment : Fragment(), LibraryRCAdapter.OnClick  {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-    }
-
-
-
-    override fun onItemEdit(position: Int) {
-    }
-
-    override fun onItemDelete(position: Int) {
     }
 
 
